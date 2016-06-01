@@ -10,4 +10,3 @@ const render = () => {
 };
 
 store.subscribe(render);
-store.dispatch({type:'global.RESET'});

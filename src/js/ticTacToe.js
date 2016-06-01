@@ -1,6 +1,11 @@
+const defaultState = {
+  board: [[0,0,0],[0,0,0],[0,0,0]],
+  turn: 1
+}
+
 export default function ticTacToeReducer(state = {}, action) {
-  state.board = state.board || [[0,0,0],[0,0,0],[0,0,0]];
-  state.turn = state.turn || 1;
+  state.board = state.board || defaultState.board;
+  state.turn = state.turn || defaultState.turn;
 
   if (action.type === 'PLAY') {
     if (!state.board[action.i][action.j]) {
@@ -18,6 +23,8 @@ export default function ticTacToeReducer(state = {}, action) {
       };
     }
     return state;
+  } else if (action.type === 'RESET') {
+    return defaultState;
   }
   return state;
 }

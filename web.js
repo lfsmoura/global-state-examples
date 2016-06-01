@@ -23,5 +23,5 @@ if (process.env.NODE_ENV !== 'production') {
 app.use(express.static(__dirname + '/public'));
 
 server.listen(app.get('port'), function () {
-  console.log('Example app listening on port ' + app.get('port'));
+  console.log('Game on port ' + app.get('port'));
 });
