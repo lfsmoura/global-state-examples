@@ -1,16 +1,17 @@
 import React from 'react';
 
-export default class Cell extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const symbols = ['O', '_', 'X'];
 
-  render() {
-    const symbols = ['O', '_', 'X']
-    return <div
-        onClick={this.props.onClick}
-        className={`cell cell${this.props.value}`}>
-        {symbols[this.props.value+1]}
-      </div>;
-  }
+export default function Cell(props) {
+  return (<div
+    onClick={props.onClick}
+    className={`cell cell${props.value}`}
+  >
+  {symbols[props.value + 1]}
+  </div>);
 }
+
+Cell.propTypes = {
+  onClick: React.PropTypes.function,
+  value: React.PropTypes.number,
+};

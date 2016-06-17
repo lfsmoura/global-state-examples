@@ -5,7 +5,7 @@ import Game from './components/Game.js';
 import { store } from './store.js';
 
 const render = () => {
-  ReactDOM.render(<Game/>,
+  ReactDOM.render(<Game />,
       document.getElementById('main'));
 };
 
