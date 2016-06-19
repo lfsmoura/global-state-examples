@@ -1,4 +1,6 @@
 import createGlobalStore from 'global-state-client';
 import reducer from './ticTacToe.js';
 
-export const store = createGlobalStore({ reducer });
+const room = window.location.hash.substr(1) || Math.trunc(Math.random() * 90000000);
+window.location = `#${room}`;
+export const store = createGlobalStore({ reducer, room });
