@@ -1,16 +1,19 @@
 import React from 'react';
 
-import { store } from '../store.js';
+import { store, player, room } from '../store.js';
 
 import Cell from './Cell.js';
 
 export default class Game extends React.Component {
   play(i, j) {
-    store.dispatch({ type: 'PLAY', i, j });
+    store.dispatch({ type: 'PLAY', i, j, player });
   }
 
   render() {
     const state = store.getState();
+    const shareLink = player === 1 ?
+      <div className="game-link">{location.toString()}#{room}</div> : '';
+
     return (<div>
       <button onClick={() => store.dispatch({ type: 'RESET' })} >
         Reset
@@ -23,6 +26,7 @@ export default class Game extends React.Component {
             value={col}
           />)}
         </div>)}
+      {shareLink}
     </div>);
   }
 }

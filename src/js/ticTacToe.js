@@ -7,7 +7,7 @@ export default function ticTacToeReducer({
   board = defaultState.board,
   turn = defaultState.turn,
 } = {}, action) {
-  if (action.type === 'PLAY') {
+  if (action.type === 'PLAY' && action.player === turn) {
     if (!board[action.i][action.j]) {
       return {
         turn: -turn,
